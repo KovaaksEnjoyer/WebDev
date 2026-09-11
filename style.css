@@ -1,0 +1,236 @@
+:root {
+    --bleu: #1a3a5c;
+    --bleu-clair: #2c6ba0;
+    --texte: #22272e;
+    --gris: #5a6472;
+    --ligne: #d8dee6;
+    --fond: #f2f4f7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Calibri, Arial, sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.32;
+    color: var(--texte);
+    background: var(--fond);
+    padding: 25px 15px;
+}
+
+.cv {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, .15);
+}
+
+/* ---------- En-tête ---------- */
+
+header {
+    background: var(--bleu);
+    color: #fff;
+    padding: 18px 30px 15px;
+}
+
+header h1 {
+    font-size: 21pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.poste {
+    font-size: 11pt;
+    color: #a8c8e4;
+    margin-top: 3px;
+    letter-spacing: .5px;
+}
+
+.contact {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 20px;
+    margin-top: 11px;
+    padding-top: 9px;
+    border-top: 1px solid rgba(255, 255, 255, .25);
+    font-size: 9.5pt;
+}
+
+.contact a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Structure ---------- */
+
+main {
+    padding: 18px 30px 10px;
+}
+
+section {
+    margin-bottom: 11px;
+}
+
+section:last-child {
+    margin-bottom: 0;
+}
+
+h2 {
+    font-size: 10.5pt;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--bleu);
+    padding-bottom: 3px;
+    margin-bottom: 8px;
+    border-bottom: 2px solid var(--bleu);
+}
+
+h3 {
+    font-size: 10pt;
+    color: var(--texte);
+}
+
+.profil {
+    text-align: justify;
+    color: var(--gris);
+}
+
+/* ---------- Compétences ---------- */
+
+.competences {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.competences th {
+    width: 33%;
+    text-align: left;
+    vertical-align: top;
+    font-weight: 600;
+    color: var(--bleu-clair);
+    padding: 3px 14px 3px 0;
+    border-bottom: 1px solid var(--ligne);
+}
+
+.competences td {
+    vertical-align: top;
+    padding: 3px 0;
+    border-bottom: 1px solid var(--ligne);
+}
+
+.competences tr:last-child th,
+.competences tr:last-child td {
+    border-bottom: none;
+}
+
+/* ---------- Entrées (formation / expérience) ---------- */
+
+.entree {
+    margin-bottom: 8px;
+    padding-left: 12px;
+    border-left: 2px solid var(--ligne);
+}
+
+.entree:last-child {
+    margin-bottom: 0;
+}
+
+.entree-titre {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+}
+
+.date {
+    font-size: 9pt;
+    color: var(--gris);
+    white-space: nowrap;
+}
+
+.lieu {
+    font-size: 9pt;
+    color: var(--bleu-clair);
+    margin-bottom: 3px;
+}
+
+.entree ul {
+    margin-left: 15px;
+    color: var(--gris);
+}
+
+.entree li {
+    margin-bottom: 1px;
+}
+
+/* ---------- Impression ---------- */
+
+@media print {
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    body {
+        background: #fff;
+        padding: 0;
+    }
+
+    .cv {
+        width: 100%;
+        box-shadow: none;
+    }
+
+    header {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    section {
+        break-inside: avoid;
+    }
+}
+
+/* ---------- Écran étroit ---------- */
+
+@media screen and (max-width: 800px) {
+    .cv {
+        width: 100%;
+    }
+
+    header,
+    main {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .competences,
+    .competences tbody,
+    .competences tr,
+    .competences th,
+    .competences td {
+        display: block;
+        width: 100%;
+    }
+
+    .competences th {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .entree-titre {
+        flex-direction: column;
+        gap: 2px;
+    }
+}
